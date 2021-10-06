@@ -28,11 +28,17 @@ app.get('/campgrounds',async (req,res) => {
     const campgrounds =await Campground.find({});
     res.render('campgrounds/index',{campgrounds});
 })
-app.get('/makecampground',async (req,res) => {
+app.get('/campgrounds/:id',async (req,res) => {
+    const campground = await Campground.findById(req.params.id);
+    res.render('campgrounds/show',{campground});
+})
+
+
+/* app.get('/makecampground',async (req,res) => {
     const camp = new Campground({ title: 'My Backyard', description:'Cheap camping'});
     await camp.save();
     res.send(camp);
-})
+}) */
 
 app.listen(2908,() => {
     console.log("LISTENING ON PORT 2908")
