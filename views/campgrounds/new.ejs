@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New campground</title>
-</head>
-<body>
-    <form action="/campgrounds" method="post">
-    <div>
-        <label for="title">Title</label>
-        <input type="text" id="title" name="campground[title]">
+<% layout('/layouts/boilerplate') %> 
+<h1 class="text-center ">New Campground</h1>
+    <form class="container w-50" action="/campgrounds" method="post">
+        <div class="my-1">
+            <label for="title" class="form-label mx-1">Title</label>
+            <input class="form-control" type="text" id="title" name="campground[title]">
+        </div>
+        <div class="my-1">
+            <label for="location" class="form-label  mx-1">Location</label>
+            <input class="form-control" type="text" id="location" name="campground[location]" >
+        </div>
+    <div class=" input-group my-2">
+        <label for="image" class="form-label  mx-1 mb-0 pb-0">Image Url</label>
+        <div class=" input-group my-2">
+           
+            <input class="form-control" type="text" id="image" name="campground[image]" >
+          
+        </div>
     </div>
-    <div>
-        <label for="location">Location</label>
-        <input type="text" id="location" name="campground[location]">
-    </div>
-    <button>Add Campground</button>
+        <label class="form-label  mx-1" for="price">Campground Price</label>
+        <div class="input-group mb-2">
+          <br>
+            <span class="input-group-text">$</span>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="price" name="campground[price]" >
+            <span class="input-group-text">.00</span>
+          </div>
+        <div class="my-1  mx-1">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="textarea" id="description" name="campground[description]" style="height: 100px"></textarea>
+        </div>
+        <button class="btn btn-info text-light my-3">Add Campground</button><br>
+        <a class="mx-1 " href="/campgrounds%> ">All Campground</a>
     </form>
-    <a href="/campgrounds">All Campgrounds</a>
-    
-</body>
-</html>
+
+   
